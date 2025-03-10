@@ -1,20 +1,21 @@
 {
   "terminal.integrated.env.linux": {
-    "PYTHONPATH": "${workspaceFolder}:${env:PYTHONPATH}"
+    "PYTHONPATH": "${workspaceFolder}/src:${env:PYTHONPATH}"
   },
   "terminal.integrated.env.windows": {
-    "PYTHONPATH": "${workspaceFolder};${env:PYTHONPATH}"
+    "PYTHONPATH": "${workspaceFolder}/src;${env:PYTHONPATH}"
   },
   "terminal.integrated.env.osx": {
-    "PYTHONPATH": "${workspaceFolder}:${env:PYTHONPATH}"
+    "PYTHONPATH": "${workspaceFolder}/src:${env:PYTHONPATH}"
   },
+  "python.analysis.extraPaths": ["src"],
   "mypy-type-checker.interpreter": ["${workspaceFolder}/.venv/bin/python"],
   "mypy-type-checker.path": ["${workspaceFolder}/.venv/bin/mypy"],
   "git.ignoreLimitWarning": true,
   "python.testing.unittestArgs": [
     "-v",
     "-s",
-    "./Tests",
+    "./src/Tests",
     "-p",
     "test_*.py"
   ],
@@ -43,7 +44,6 @@
     "editor.defaultFormatter": "tamasfe.even-better-toml"
   },
   "[python]": {
-    "editor.formatOnSave": true,
     "editor.codeActionsOnSave": {
       "source.fixAll": "explicit",
       "source.organizeImports": "explicit"

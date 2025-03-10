@@ -1,5 +1,5 @@
-from src.optimize import optimize
-from src.type import ApiInput, ApiOutput
+from optimize import optimize
+from type import ApiInput, ApiOutput
 
 
 def main(api_input: ApiInput) -> ApiOutput:

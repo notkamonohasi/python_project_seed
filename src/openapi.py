@@ -1,22 +1,22 @@
 from fastapi import FastAPI
 
-from src.main import main
-from src.type import ApiInput
+from optimize import optimize
+from type import ApiInput
 
 app = FastAPI(debug=True)
 
 
-@app.get("/id")
-def _id(api_input: ApiInput):
+@app.get("/auth")
+def _auth(api_input: ApiInput):
     """
     dummy function
     """
-    return main(api_input)
+    return api_input.id == "kamonohasi"
 
 
-@app.get("/solve")
-def _solve(api_input: ApiInput):
+@app.get("/optimize")
+def _optimize(api_input: ApiInput):
     """
     dummy function
     """
-    return main(api_input)
+    return optimize(api_input)

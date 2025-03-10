@@ -1,4 +1,4 @@
-from src.type import ApiInput, ApiOutput, Status
+from type import ApiInput, ApiOutput, Status
 
 
 def optimize(api_input: ApiInput) -> ApiOutput:

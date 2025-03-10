@@ -11,4 +11,3 @@ WORKDIR /app
 ARG BUILDER_PACKAGE_PATH="/app/.venv/lib/python3.11/site-packages"
 ARG PROD_PACKAGE_PATH="/usr/local/lib/python3.11"
 COPY --from=builder ${BUILDER_PACKAGE_PATH} ${PROD_PACKAGE_PATH}
-COPY src .
