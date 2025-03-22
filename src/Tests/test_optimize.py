@@ -1,9 +1,7 @@
-import unittest
-
 from Optimize import optimize
 from Tests.settings import API_INPUT
 
 
-class TestOptimize(unittest.TestCase):
+class TestOptimize:
     def test_optimize(self) -> None:
         optimize(API_INPUT)
