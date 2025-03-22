@@ -1,4 +1,4 @@
-from optimize import optimize
+from Optimize import optimize
 from type import ApiInput, ApiOutput
 
 

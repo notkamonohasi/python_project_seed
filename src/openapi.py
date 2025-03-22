@@ -2,7 +2,7 @@ from pathlib import Path
 
 from fastapi import FastAPI
 
-from optimize import optimize
+from Optimize import optimize
 from type import ApiInput, ApiOutput
 
 app = FastAPI(debug=True)

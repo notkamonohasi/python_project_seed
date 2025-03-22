@@ -1,6 +1,6 @@
 import unittest
 
-from optimize import optimize
+from Optimize import optimize
 from Tests.settings import API_INPUT
 
 
