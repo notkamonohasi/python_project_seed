@@ -25,7 +25,10 @@
                         "description": "Successful Response",
                         "content": {
                             "application/json": {
-                                "schema": {}
+                                "schema": {
+                                    "type": "boolean",
+                                    "title": "Response  Auth Auth Post"
+                                }
                             }
                         }
                     },
@@ -62,7 +65,9 @@
                         "description": "Successful Response",
                         "content": {
                             "application/json": {
-                                "schema": {}
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiOutput"
+                                }
                             }
                         }
                     },
@@ -109,6 +114,19 @@
                 ],
                 "title": "ApiInput"
             },
+            "ApiOutput": {
+                "properties": {
+                    "status": {
+                        "$ref": "#/components/schemas/Status",
+                        "description": "user status"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "status"
+                ],
+                "title": "ApiOutput"
+            },
             "HTTPValidationError": {
                 "properties": {
                     "detail": {
@@ -121,6 +139,15 @@
                 },
                 "type": "object",
                 "title": "HTTPValidationError"
+            },
+            "Status": {
+                "type": "integer",
+                "enum": [
+                    1,
+                    2,
+                    3
+                ],
+                "title": "Status"
             },
             "ValidationError": {
                 "properties": {

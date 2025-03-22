@@ -19,9 +19,13 @@ jobs:
         run: uv sync
       - name: Set PYTHONPATH
         run: echo "PYTHONPATH=${{ github.workspace }}/src" >> $GITHUB_ENV
-      - name: Test with ruff
+      - name: Test with ruff linter
         run: uv run ruff check src
+      - name: Test with ruff formatter
+        run: uv run ruff format --check src
       - name: Test with mypy
         run: uv run mypy src
       - name: Test with pytest
         run: uv run pytest -vv
+      - name: Check swagger
+        run: uv run src/openapi.py check

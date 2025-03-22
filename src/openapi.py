@@ -1,3 +1,5 @@
+from pathlib import Path
+
 from fastapi import FastAPI
 
 from optimize import optimize
@@ -22,8 +24,29 @@ def _optimize(api_input: ApiInput) -> ApiOutput:
     return optimize(api_input)
 
 
+def generate(swagger_path: Path) -> None:
+    with open(swagger_path, "w") as f:
+        json.dump(app.openapi(), f, indent=4)
+
+
 if __name__ == "__main__":
+    import argparse
+    import filecmp
     import json
 
-    with open("swagger.json", "w") as f:
-        json.dump(app.openapi(), f, indent=4)
+    from const import ROOT_DIR
+
+    parser = argparse.ArgumentParser(description="openapi")
+    parser.add_argument("mode", choices=["gen", "check"], help="mode")
+    args = parser.parse_args()
+
+    local_swagger_path = ROOT_DIR.joinpath("swagger.json")
+    tmp_swagger_path = Path("/tmp/swagger.json")
+    if args.mode == "gen":
+        generate(local_swagger_path)
+    elif args.mode == "check":
+        generate(tmp_swagger_path)
+        result = filecmp.cmp(local_swagger_path, tmp_swagger_path, shallow=False)
+        assert result is True
+    else:
+        raise AssertionError
