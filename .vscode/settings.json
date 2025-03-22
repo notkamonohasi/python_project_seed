@@ -11,6 +11,7 @@
   "python.analysis.extraPaths": ["src"],
   "mypy-type-checker.interpreter": ["${workspaceFolder}/.venv/bin/python"],
   "mypy-type-checker.path": ["${workspaceFolder}/.venv/bin/mypy"],
+  "ruff.path": ["${workspaceFolder}/.venv/bin/ruff"],
   "git.ignoreLimitWarning": true,
   "python.testing.unittestArgs": [
     "-v",
@@ -41,7 +42,7 @@
     "editor.defaultFormatter": "foxundermoon.shell-format"
   },
   "[toml]": {
-    "editor.defaultFormatter": "tamasfe.even-better-toml"
+    "editor.defaultFormatter": "tamasfe.even-better-toml",
   },
   "[python]": {
     "editor.codeActionsOnSave": {
